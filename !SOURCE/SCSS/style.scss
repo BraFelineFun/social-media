@@ -1,0 +1,111 @@
+$blue: #3d41d7;
+$font-grey: #d3d3fd;
+
+.wrapper {
+	font-family: Roboto;
+	max-width: 1440px;
+	margin: 0 auto;
+	background-color: #ececfc; //Пока чисто для прикола
+	border-radius: 5%;
+}
+aside {
+	p {
+		color: $font-grey;
+		font-weight: 500;
+	}
+
+	display: inline-block;
+	margin: 30px 60px 0 30px;
+	min-width: 294px;
+}
+.--notify {
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background-color: white;
+}
+.aside {
+	&_imgHolder {
+		display: inline-block;
+		width: 24px;
+		margin-right: 16px;
+	}
+	&_item {
+		position: relative;
+		z-index: 3;
+		height: 56px;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+
+		p {
+			display: inline-block;
+		}
+		.--notify {
+			height: 16px;
+			background-color: #de350b;
+			p {
+				display: block;
+				margin: auto;
+				font-size: 10px;
+				font-weight: 700;
+			}
+		}
+	}
+	&_team {
+		margin-bottom: 250px;
+	}
+	&_teamTitle {
+		margin-top: 48px;
+	}
+	&_inner {
+		z-index: 1;
+		overflow: hidden;
+		position: relative;
+		padding-left: 24px;
+		background-color: $blue;
+		border-radius: 20px;
+		box-shadow: 0px 14px 34px rgba(34, 37, 169, 0.4);
+		.logo {
+			display: flex;
+			a {
+				display: block;
+				margin: 42px auto;
+			}
+		}
+	}
+	&_gradient {
+		//Градиент внизу сайдбара
+		z-index: 2;
+		position: absolute;
+		left: 0px;
+		top: 75%;
+		height: 500px;
+		width: 100%;
+		background: rgb(30, 30, 139);
+		background: radial-gradient(
+			circle,
+			rgba(30, 30, 139, 1) 0%,
+			rgba(44, 46, 184, 1) 44%,
+			rgba(61, 65, 215, 1) 89%
+		);
+	}
+}
+
+/*.wrapper {
+	margin: 0 auto;
+	max-width: 400px;
+	background-color: black;
+}
+.imgHolder {
+	background-color: yellow;
+	display: flex;
+	img {
+		display: block;
+		margin: auto;
+	}
+}
+background: rgb(9,9,121);
+background: radial-gradient(circle, rgba(9,9,121,1) 0%, rgba(9,9,121,1) 15%, rgba(61,65,215,1) 100%);
+
+*/

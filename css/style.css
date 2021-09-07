@@ -1,0 +1,110 @@
+.wrapper {
+  font-family: Roboto;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: #ececfc;
+  border-radius: 5%;
+}
+
+aside {
+  display: inline-block;
+  margin: 30px 60px 0 30px;
+  min-width: 294px;
+}
+aside p {
+  color: #d3d3fd;
+  font-weight: 500;
+}
+
+.--notify {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.aside_imgHolder {
+  display: inline-block;
+  width: 24px;
+  margin-right: 16px;
+}
+.aside_item {
+  position: relative;
+  z-index: 3;
+  height: 56px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.aside_item p {
+  display: inline-block;
+}
+.aside_item .--notify {
+  height: 16px;
+  background-color: #de350b;
+}
+.aside_item .--notify p {
+  display: block;
+  margin: auto;
+  font-size: 10px;
+  font-weight: 700;
+}
+.aside_team {
+  margin-bottom: 250px;
+}
+.aside_teamTitle {
+  margin-top: 48px;
+}
+.aside_inner {
+  z-index: 1;
+  overflow: hidden;
+  position: relative;
+  padding-left: 24px;
+  background-color: #3d41d7;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 14px 34px rgba(34, 37, 169, 0.4);
+          box-shadow: 0px 14px 34px rgba(34, 37, 169, 0.4);
+}
+.aside_inner .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.aside_inner .logo a {
+  display: block;
+  margin: 42px auto;
+}
+.aside_gradient {
+  z-index: 2;
+  position: absolute;
+  left: 0px;
+  top: 75%;
+  height: 500px;
+  width: 100%;
+  background: #1e1e8b;
+  background: radial-gradient(circle, #1e1e8b 0%, #2c2eb8 44%, #3d41d7 89%);
+}
+
+/*.wrapper {
+	margin: 0 auto;
+	max-width: 400px;
+	background-color: black;
+}
+.imgHolder {
+	background-color: yellow;
+	display: flex;
+	img {
+		display: block;
+		margin: auto;
+	}
+}
+background: rgb(9,9,121);
+background: radial-gradient(circle, rgba(9,9,121,1) 0%, rgba(9,9,121,1) 15%, rgba(61,65,215,1) 100%);
+
+*/
