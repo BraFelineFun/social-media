@@ -1,72 +1,99 @@
 $blue: #3d41d7;
 $font-grey: #d3d3fd;
 
+//breakpoint
+$md1: 320px;
+
 .wrapper {
-	font-family: Roboto;
+	///
+	height: 3000px;
+	///
+	position: relative;
+	font-family: DM Sans, sans-serif;
 	max-width: 1440px;
 	margin: 0 auto;
 	background-color: #ececfc; //Пока чисто для прикола
-	border-radius: 5%;
+	border-radius: 15px;
+}
+.--active {
+	@media (max-width: $md1) {
+		display: block;
+		margin: 0;
+	}
 }
 aside {
+	@media (max-width: $md1) {
+		display: none;
+		margin: 0;
+	}
 	p {
 		color: $font-grey;
 		font-weight: 500;
 	}
-
 	display: inline-block;
+	position: fixed;
+	z-index: 5;
 	margin: 30px 60px 0 30px;
-	min-width: 294px;
+	width: 294px;
 }
 .--notify {
+	//количество новых уведомлений
 	width: 16px;
 	height: 16px;
 	border-radius: 50%;
 	background-color: white;
+	p {
+		display: block;
+		margin: auto;
+		font-size: 10px;
+		font-weight: 700;
+	}
 }
 .aside {
-	&_imgHolder {
-		display: inline-block;
-		width: 24px;
-		margin-right: 16px;
-	}
-	&_item {
-		position: relative;
-		z-index: 3;
-		height: 56px;
-		display: flex;
-		align-items: center;
-		justify-content: flex-start;
-
-		p {
-			display: inline-block;
-		}
-		.--notify {
-			height: 16px;
-			background-color: #de350b;
-			p {
-				display: block;
-				margin: auto;
-				font-size: 10px;
-				font-weight: 700;
+	@media (max-width: $md1) {
+		&_close {
+			position: absolute;
+			left: 10px;
+			top: 10px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			height: 40px;
+			width: 40px;
+			span {
+				cursor: pointer;
+				margin-bottom: 35px;
+				width: 40px;
+				height: 5px;
+				background-color: white;
+			}
+			span:first-child {
+				margin-bottom: 0;
+				transform: translate(0, 17.5px) rotate(-45deg);
+			}
+			span:last-child {
+				margin-bottom: 0;
+				transform: translate(0, -17.5px) rotate(45deg);
 			}
 		}
 	}
-	&_team {
-		margin-bottom: 250px;
-	}
-	&_teamTitle {
-		margin-top: 48px;
-	}
 	&_inner {
-		z-index: 1;
+		//Класс внутри aside
+		@media (max-width: $md1) {
+			border-radius: 0 20px 20px 0;
+			overflow: auto;
+		}
+		z-index: 5;
 		overflow: hidden;
 		position: relative;
-		padding-left: 24px;
+
+		margin-bottom: 50px;
 		background-color: $blue;
 		border-radius: 20px;
 		box-shadow: 0px 14px 34px rgba(34, 37, 169, 0.4);
+
 		.logo {
+			//Лого вверху side  бара
 			display: flex;
 			a {
 				display: block;
@@ -74,9 +101,125 @@ aside {
 			}
 		}
 	}
+	&_imgHolder {
+		display: inline-block;
+		width: 24px;
+		margin-right: 16px;
+	}
+
+	&_item {
+		@media (max-width: $md1) {
+			//ПОДУМАТЬ про эффект при наведении
+			&:hover::before {
+				opacity: 0;
+			}
+		}
+
+		position: relative; //Для того, чтобы указать z-index, иначе градиент перекрывает
+		padding-left: 24px;
+		z-index: 7;
+		height: 56px;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+
+		//Появление плашки справа при наведении
+		&::before {
+			position: absolute;
+			opacity: 0;
+
+			-webkit-transition: opacity 0.5s ease;
+			-moz-transition: opacity 0.5s ease;
+			-ms-transition: opacity 0.5s ease;
+			-o-transition: opacity 0.5s ease;
+			transition: opacity 0.5s ease-out;
+
+			left: 0px;
+			z-index: 3;
+			content: "";
+			width: 3px;
+			height: 32px;
+			background: #d3d3fd;
+			border-radius: 0px 100px 100px 0px;
+		}
+		&:hover::before {
+			opacity: 1;
+		}
+
+		p {
+			display: inline-block;
+			width: 138px;
+		}
+
+		.--notify {
+			//Конкретно для messages
+			background-color: #de350b;
+			display: flex;
+			p {
+				display: block;
+				width: auto;
+			}
+		}
+	}
+
+	&_team {
+		margin-bottom: 33px;
+	}
+	&_teamTitle {
+		padding-left: 24px;
+		margin-top: 48px;
+	}
+
+	&_upgrade {
+		//Раздел upgrade в конце sidebar
+		z-index: 7;
+		position: relative;
+		&Pic {
+			display: flex;
+			a {
+				display: block;
+				margin: 0 auto;
+			}
+		}
+		&Text {
+			display: flex;
+
+			p {
+				display: block;
+				margin: 24px auto;
+				font-size: 16px;
+				color: white;
+				line-height: 22px;
+				font-weight: 400;
+				text-align: center;
+			}
+			span {
+				//Жирное начертание для "PRO"
+				font-weight: 700;
+			}
+		}
+		&Button {
+			display: flex;
+			button {
+				display: block;
+				margin: 0 auto 34px;
+				background: #ffffff;
+				border-radius: 16px;
+				height: 40px;
+				width: 154px;
+				border: none;
+				font-size: 16px;
+				line-height: 20px;
+				text-align: center;
+				letter-spacing: -0.2px;
+				color: #323484;
+				font-weight: 700;
+			}
+		}
+	}
 	&_gradient {
 		//Градиент внизу сайдбара
-		z-index: 2;
+		z-index: 6;
 		position: absolute;
 		left: 0px;
 		top: 75%;
@@ -92,20 +235,61 @@ aside {
 	}
 }
 
-/*.wrapper {
-	margin: 0 auto;
-	max-width: 400px;
-	background-color: black;
-}
-.imgHolder {
-	background-color: yellow;
-	display: flex;
-	img {
-		display: block;
-		margin: auto;
+//Все что находится вне сайдбара
+.content {
+	position: absolute;
+	left: 350px;
+	@media (max-width: $md1) {
+		position: static;
+	}
+	header {
+		//ОПА, ПОШЕЛ MOBILE FIRST (засунуть в медиа запрос)
+		width: 100%;
+		height: 55px;
+		padding: 3px 10px 0px;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+
+		border-bottom: 2px solid $blue;
+		box-shadow: 0px 15px 30px rgba(34, 36, 169, 0.267);
+		background-color: #a9acff;
+	}
+	.header {
+		&_inner {
+			display: flex;
+			justify-content: space-between;
+		}
+		&_menu {
+			padding-top: 7px; //!!!!!!!!КОСТЫЛЬ
+			margin: auto 0px;
+			height: 40px;
+			width: 40px;
+			display: flex;
+			flex-direction: column;
+			span {
+				cursor: pointer;
+				margin-bottom: 5px;
+				width: 40px;
+				height: 5px;
+				background-color: black;
+			}
+		}
+		&_dislocation {
+			//Текст с названием страницы, на которой мы находимся
+			text-align: center;
+			margin: 0 auto;
+			font-weight: 700;
+		}
+		&_avatar {
+			img {
+				height: 48px;
+				width: 48px;
+			}
+		}
+	}
+	.main {
+		//ОПА, ПОШЕЛ MOBILE FIRST
+		padding-top: 70px;
 	}
 }
-background: rgb(9,9,121);
-background: radial-gradient(circle, rgba(9,9,121,1) 0%, rgba(9,9,121,1) 15%, rgba(61,65,215,1) 100%);
-
-*/

@@ -12,6 +12,11 @@
 			href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
 			rel="stylesheet"
 		/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
 		<!-- подключение нормирующего стиля -->
 		<link rel="stylesheet" href="css/normalize.css" />
 		<link rel="stylesheet" href="css/style.css" />
@@ -23,6 +28,10 @@
 		<div class="wrapper">
 			<aside>
 				<div class="aside_inner">
+					<div class="aside_close">
+						<!--Крестик чтоб закрыть-->
+						<span></span><span></span>
+					</div>
 					<div class="logo">
 						<a href="">
 							<img src="img/Logo.svg" alt="" />
@@ -30,12 +39,10 @@
 					</div>
 					<nav>
 						<div class="aside_item">
-							<div class="aside_holder">
-								<div class="aside_imgHolder">
-									<a href=""><img src="img/nav/1.svg" alt="" /></a>
-								</div>
-								<a href=""><p>Overview</p></a>
+							<div class="aside_imgHolder">
+								<a href=""><img src="img/nav/1.svg" alt="" /></a>
 							</div>
+							<a href=""><p>Overview</p></a>
 						</div>
 						<div class="aside_item">
 							<div class="aside_imgHolder">
@@ -79,7 +86,7 @@
 								<a href=""><img src="img/nav/7.svg" alt="" /></a>
 							</div>
 							<a href=""><p>Message</p></a>
-							<div class="aside_item --notify">
+							<div class="aside_notify --notify">
 								<p>9</p>
 							</div>
 						</div>
@@ -91,17 +98,54 @@
 							<a href=""><p>Support</p></a>
 						</div>
 					</div>
+					<div class="aside_upgrade">
+						<div class="aside_upgradePic">
+							<a href=""><img src="img/nav/Upgrade.svg" alt="" /></a>
+						</div>
+						<div class="aside_upgradeText">
+							<p>
+								Upgrade to <span>Pro</span> for <br />
+								more resources
+							</p>
+						</div>
+						<div class="aside_upgradeButton">
+							<button>Upgrade</button>
+						</div>
+					</div>
 					<div class="aside_gradient"></div>
 				</div>
 			</aside>
 
-			<header></header>
-			<div class="main">
-				<div class="row1"></div>
-				<div class="row2"></div>
+			<div class="content">
+				<header>
+					<div class="header_inner">
+						<div class="header_menu">
+							<!--ТРИ ПОЛОСКИ-->
+							<span></span><span></span><span></span>
+						</div>
+						<div class="header_dislocation">
+							<p>Overview</p>
+						</div>
+						<div class="header_avatar">
+							<img src="img/header/Avatar.png" alt="" />
+						</div>
+					</div>
+				</header>
+				<div class="main">
+					<div class="row1">hello2</div>
+					<div class="row2">
+						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore
+						soluta, dolore nemo ad accusamus, adipisci recusandae maxime cumque
+						obcaecati quod, quos distinctio incidunt? Dolor sed natus iure,
+						culpa veniam fugit! Lorem ipsum dolor sit amet consectetur
+						adipisicing elit. Non cumque nulla velit a quo consectetur deserunt
+						nobis libero dolore sunt praesentium, omnis molestias odio ratione
+						pariatur excepturi mollitia aliquam error?
+					</div>
+				</div>
 			</div>
 		</div>
 		<!-- подключение скриптов  -->
-		<script src="js/script-dist.js"></script>
+		<script src="js/script.js"></script>
 	</body>
 </html>
