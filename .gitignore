@@ -1,2 +1,7 @@
 index5.html
 prepros.config
+.eslintrc.js
+jsconfig.json
+package-lock.json 
+package.json
+node_modules

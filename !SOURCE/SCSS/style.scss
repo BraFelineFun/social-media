@@ -1,6 +1,6 @@
 $blue: #3d41d7;
 $font-grey: #d3d3fd;
-
+$grey: #fff4f2;
 //breakpoint
 $md1: 320px;
 
@@ -12,8 +12,9 @@ $md1: 320px;
 	font-family: DM Sans, sans-serif;
 	max-width: 1440px;
 	margin: 0 auto;
-	background-color: #ececfc; //Пока чисто для прикола
-	border-radius: 15px;
+	// background-color: #ececfc; //Пока чисто для прикола
+	// box-shadow: 0 0 30px #d3d3ff;
+	// border-radius: 15px;
 }
 .--active {
 	@media (max-width: $md1) {
@@ -237,23 +238,31 @@ aside {
 
 //Все что находится вне сайдбара
 .content {
+	max-width: 1015px;
 	position: absolute;
-	left: 350px;
+	left: 370px;
 	@media (max-width: $md1) {
 		position: static;
 	}
 	header {
 		//ОПА, ПОШЕЛ MOBILE FIRST (засунуть в медиа запрос)
-		width: 100%;
-		height: 55px;
-		padding: 3px 10px 0px;
-		position: fixed;
-		z-index: 1;
-		top: 0;
+		@media (max-width: $md1) {
+			position: fixed;
+			width: 100%;
+			z-index: 1;
+			top: 0;
+			padding: 3px 10px 0px;
+			margin: 0;
+			height: 55px;
 
-		border-bottom: 2px solid $blue;
-		box-shadow: 0px 15px 30px rgba(34, 36, 169, 0.267);
-		background-color: #a9acff;
+			border-bottom: 2px solid $blue;
+			box-shadow: 0px 15px 30px rgba(34, 36, 169, 0.267);
+			background-color: #a9acff;
+		}
+		height: 70px;
+		margin: 63px 10px 0px;
+
+		position: static;
 	}
 	.header {
 		&_inner {
@@ -261,12 +270,16 @@ aside {
 			justify-content: space-between;
 		}
 		&_menu {
+			@media (max-width: $md1) {
+				display: flex;
+				flex-direction: column;
+			}
+			display: none;
 			padding-top: 7px; //!!!!!!!!КОСТЫЛЬ
 			margin: auto 0px;
 			height: 40px;
 			width: 40px;
-			display: flex;
-			flex-direction: column;
+
 			span {
 				cursor: pointer;
 				margin-bottom: 5px;
@@ -277,9 +290,68 @@ aside {
 		}
 		&_dislocation {
 			//Текст с названием страницы, на которой мы находимся
+			@media (max-width: $md1) {
+				display: block;
+			}
+			display: none;
 			text-align: center;
 			margin: 0 auto;
 			font-weight: 700;
+		}
+		//Левая часть header
+		&_greetings {
+			@media (max-width: $md1) {
+				display: none;
+			}
+		}
+		&_userHello {
+			p {
+				display: inline;
+			}
+			font-size: 15px;
+			font-weight: 400;
+			color: #8f92a1;
+		}
+		&_userInfo {
+			padding-top: 5px;
+			p {
+				display: inline;
+			}
+			font-weight: 600;
+			font-size: 35px;
+			line-height: 43px;
+			letter-spacing: -0.06em;
+			color: #272835;
+		}
+		//Правая часть HEADER
+		&_actions {
+			display: flex;
+			align-items: center;
+		}
+		&_icons {
+			@media (max-width: $md1) {
+				display: none;
+			}
+			display: flex;
+			align-items: center;
+		}
+		&_bell {
+			padding-right: 40px;
+			position: relative;
+			.--notify {
+				display: flex;
+				position: absolute;
+				top: -5px;
+				left: 5px;
+
+				background-color: $blue;
+				p {
+					color: white;
+				}
+			}
+		}
+		&_settings {
+			padding-right: 40px;
 		}
 		&_avatar {
 			img {
@@ -290,6 +362,152 @@ aside {
 	}
 	.main {
 		//ОПА, ПОШЕЛ MOBILE FIRST
-		padding-top: 70px;
+		padding-top: 67px; //НЕ МЕНЯТЬ НА MARGIN!
+		.row {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			//max-width: ;??
+
+			.--bggrey {
+				background-color: $grey;
+				border-radius: 20px;
+			}
+			&_card {
+				width: 302px;
+				height: 331px;
+				margin-right: 10px;
+			}
+			&_imageUpd {
+				display: flex;
+				img {
+					display: block;
+					margin: 20px auto 0;
+				}
+			}
+
+			&_bottombox {
+				display: flex;
+				justify-content: space-between;
+				padding: 54px 20px 0;
+				align-items: center;
+			}
+			&_title1 {
+				font-size: 20px;
+				line-height: 25px;
+				padding-bottom: 7px;
+				letter-spacing: -0.04em;
+				color: #000000;
+			}
+			&_subtitle {
+				font-size: 12px;
+				line-height: 15px;
+				letter-spacing: -0.06em;
+				color: #8f92a1;
+			}
+			&_plusbutt {
+				background: transparent;
+
+				img {
+					border-radius: 10px;
+					display: block;
+					box-shadow: 0px 14px 34px rgba(34, 37, 169, 0.4);
+				}
+			}
+			//1.2.1
+			&_graph {
+				img {
+					display: block;
+					margin: 5px auto 0;
+				}
+			}
+			&_subtitles {
+				padding: 3px 19px 0px;
+				display: flex;
+				justify-content: space-between;
+			}
+			&_numberVisitors {
+				font-size: 15px;
+				font-weight: bold;
+				line-height: 14px;
+				color: #272835;
+			}
+			&_percentsGrowline {
+				display: flex;
+				align-items: center;
+			}
+			img.arrowup {
+				margin: 0;
+
+				display: inline-block;
+			}
+			&_percentsGrow {
+				margin-left: 0px;
+				color: #00875a;
+				display: inline-block;
+				font-weight: bold;
+			}
+
+			&_boxminicards {
+				padding-top: 33px;
+				display: flex;
+				justify-content: space-between;
+			}
+			&_cardbox {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				align-items: center;
+				margin: 18px;
+			}
+
+			//1.2.2
+			&_playBut {
+				img {
+					display: block;
+					margin: 12px 17px;
+				}
+				width: 42px;
+				height: 42px;
+				background: white;
+				box-shadow: 0px 14px 34px rgba(34, 37, 169, 0.4);
+				border-radius: 50%;
+			}
+			&_numbervideos {
+				padding: 15px 0 8px 0;
+				font-weight: bold;
+				font-size: 17px;
+				line-height: 14px;
+				color: #272835;
+			}
+			&_videoPlayed {
+				height: 138px;
+				width: 138px;
+			}
+
+			//1.2.3
+			&_numberPosts {
+				font-weight: bold;
+				font-size: 17px;
+				line-height: 14px;
+				color: white;
+				margin: 26px 0 8px;
+			}
+			.--whitetext {
+				color: white;
+			}
+			&_scheduledPosts {
+				img {
+					display: block;
+					margin: 6px 0 0px;
+				}
+				height: 138px;
+				width: 138px;
+
+				border-radius: 20px;
+				background-color: $blue;
+				box-shadow: 0px 14px 34px rgba(34, 37, 169, 0.4);
+			}
+		}
 	}
 }

@@ -14,5 +14,3 @@ menuClose.addEventListener("click", function(e){
      const menuBody = asideArr[0];
     menuBody.classList.toggle('--active');
 });
-//-----------------
-
